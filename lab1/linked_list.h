@@ -1,8 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct node {
-    union {
+typedef struct node
+{
+    union
+    {
         int count;
         int value;
     };
@@ -58,4 +60,3 @@ int linked_list_search(node *head, int val);
 
 /* search all indexes of val */
 node *linked_list_search_all(node *head, int val);
-
