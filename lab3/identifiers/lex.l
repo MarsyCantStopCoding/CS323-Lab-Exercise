@@ -11,8 +11,16 @@ letter_ {letter}|_
 digit [0-9]
 
 %%
-{letter_}({letter_}|{digit})* { identifiers++; printf("line %d: %s\n", lines, yytext);} 
-\n {}
+[0-9']{letter_}({letter_}|{digit})* {/* invalid identifier: do nothing */}
+{letter_}({letter_}|{digit})* {
+    if(lines==0) lines++;
+    if(strcmp(yytext,"char") && strcmp(yytext,"int") && strcmp(yytext,"return") && 
+        strcmp(yytext,"while") && strcmp(yytext,"if") && strcmp(yytext,"else")){
+        identifiers++; 
+        printf("line %d: %s\n", lines, yytext);
+    }
+} 
+\n {lines++;}
 [\t\r ]+ { /* does nothing when seeing white spaces except new line */ }
 . { /* a final rule that matches when seeing any character but new line */ }
 <<EOF>> { printf("There are %d occurrences of valid identifiers\n", identifiers); yyterminate(); }
