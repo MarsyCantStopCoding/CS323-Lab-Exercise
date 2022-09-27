@@ -1,4 +1,5 @@
 %{
+    // In this example, we assume that words can only contain English letters. If there are special symbols such as hyphen or apostrophe, we count multiple times (for example, "isn't" will be counted as two words and "world-class" will also be counted as two words. 
     // just let you know you have macros!
     // C macro tutorial in Chinese: http://c.biancheng.net/view/446.html
     #define EXIT_OK 0
