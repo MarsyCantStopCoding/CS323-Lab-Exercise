@@ -9,7 +9,7 @@ Calc: /* to allow empty input */
     | Exp { printf("= %d\n", $1); }
     ;
 Exp: Factor
-    | Exp ADD Factor { $$ = $1 + $3; }
+    | Exp ADD Factor { $$ = $1 + $3; }  
     | Exp SUB Factor { $$ = $1 - $3; }
     ;
 Factor: Term
