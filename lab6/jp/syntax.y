@@ -33,7 +33,7 @@ Member:
     ;
 Array:
       LB RB
-    | LB Values RB
+    | LB Values RB error {puts("Comma after the close, recovered");}
     | LB Values RC error { puts("unmatched right bracket, recovered"); }
     ;
 Values:
